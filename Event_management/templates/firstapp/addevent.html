@@ -1,0 +1,17 @@
+{% extends 'firstapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>ADD event</title>
+{% endblock %}
+
+
+{% block content %}
+        <div class="container">
+            <form method="post" class="jumbotron">
+                {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" value="Add Event" class="btn btn-success">
+            </form>
+        </div>
+{% endblock %}

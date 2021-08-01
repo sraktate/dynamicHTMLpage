@@ -1,0 +1,24 @@
+{% extends 'firstapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Show Orders</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container" style="width:80%">
+       {% for ev in events %}
+    <h1>{{ev.event_name}}</h1>
+    <h4>{{ev.date}}</h4><br>
+    <h5>{{ev.time}}</h5><br><br>
+    <h6>{{ev.location}}</h6>
+    <button id="swapHeart" class="btn btn-default swap">
+    <span class="glyphicon glyphicon-heart-empty"></span>
+</button>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

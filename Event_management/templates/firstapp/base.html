@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+	{% block title %}
+    <title>Title</title>
+	{% endblock %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'CSS/main.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body >
+<div class="header_sec">
+<header style="background-color:AliceBlue; border:2px solid AliceBlue; padding:30px;">
+	<h1 style="color:Blue; font-size:100px;   "><i>Events</i></h1>
+
+</header>
+    </div>
+<div class="menu">
+<nav class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar" style= "padding: 5px 30px;background-color:#7a7aff;" >
+	<ul class="navbar-nav mr-auto" >
+		<li > <a href="/a1/ho/" >HOME</a> </li>
+		<li > <a href="{% url 'addevent' %}" title="add another order"> ADD Event </a> </li>
+        <li > <a href="{% url 'showevents' %}" title="view previous orders"> Show Event </a> </li>
+
+    </ul>
+
+    <ul>
+        <span style="float:right;">
+            {% if user.is_authenticated %}
+            <li style="float:right;"><a>hello {{user.username}}</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li > <a href="{% url 'login' %}">LOGIN</a></li>
+            <li > <a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+	    </span>
+    </ul>
+</nav>
+</div>
+<br><br><br>
+
+
+{% block content %}
+<h1 style="text-align:center;">Welcome to Event Management</h1>
+
+{% endblock %}
+
+<br><br><br>
+
+
+<div class="jumbotron" style=" height=40%">
+	<footer>
+           <div >
+                <div class="container">
+                        <h3>About Company</h3>
+                        <p>Event Management</p>
+
+                    <div >
+                        <h3>useful Links</h3>
+                        <ul class="li">
+                            <li><a href="#">Help Links</a></li>
+                            <li><a href="#">Customer support </a></li>
+                        </ul>
+                    </div>
+                    <div >
+                        <h3>address</h3>
+                        <address>
+                            Secotor:25 IT Park<br>
+							Pune
+                        </address>
+                    </div>
+
+                   <div class="social">
+                       <a href="#"><i class="icon ion-social-facebook" style=" margin: 5px 10px; "></i></a>
+                       <a href="#"><i class="icon ion-social-twitter" style=" margin: 5px 10px; "></i></a>
+                       <a href="#"><i class="icon ion-social-snapchat" style=" margin: 5px 10px; "></i></a>
+                       <a href="#"><i class="icon ion-social-instagram" style=" margin: 5px 10px; "></i></a>
+                        <p class="copyright">Event Company © 2021</p>
+                       </div>
+
+                </div>
+                 </div>
+
+
+
+
+	</footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+</body>
+</html>
